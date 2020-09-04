@@ -1,0 +1,59 @@
+{
+  "name": "desktop-application",
+  "version": "1.0.0",
+  "description": "A minimal Electron application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "install": "electron-rebuild",
+    "exec-file": "electron-builder --dir",
+    "install-file": "electron-builder"
+  },
+  "repository": "https://github.com/electron/electron-quick-start",
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "tutorial",
+    "demo"
+  ],
+  "author": "GitHub",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "@types/jquery": "^3.5.1",
+    "electron": "10.1.1",
+    "electron-builder": "^22.8.0",
+    "electron-rebuild": "^2.0.1",
+    "typescript": "^4.0.2"
+  },
+  "build": {
+    "appId": "com.cilent.app.electronbuild",
+    "productName": "electron-build",
+    "directories": {
+      "output": "build"
+    },
+    "mac": {
+      "icon": "icons/Mushroom.ico"
+    },
+    "win": {
+      "icon": "icons/Mushroom.ico"
+    },
+    "linux": {
+      "icon": "icons/Mushroom.ico"
+    }
+  },
+  "dependencies": {
+    "amrhextotext": "^1.1.1",
+    "electron-is-dev": "^1.2.0",
+    "hexify": "^1.0.1",
+    "iconv-lite": "^0.6.2",
+    "jquery": "^3.5.1",
+    "nfc-pcsc": "^0.8.0",
+    "pcsclite": "^1.0.0",
+    "serialport": "^9.0.1",
+    "smartcard": "^1.0.37",
+    "usb": "^1.6.3",
+    "vue": "^2.6.12",
+    "vue-router": "^3.4.3"
+  }
+}
