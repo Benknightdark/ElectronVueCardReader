@@ -1,3 +1,4 @@
+import {isLogin} from '../helpers/ahtuHelper.js';
 export const siteMenuComponent = Vue.component('site-menu', {
   created: function () {
     this.$router.options.routes.forEach(route => {
@@ -57,3 +58,32 @@ export const siteFooterMenuComponent = Vue.component('site-footer', {
   methods: {},
   template: ``
 }) 
+export const sitePageComponent=Vue.component('site-page',{
+  data: function () {
+    return {}
+  },
+  methods: {
+    isLogin() {
+      return isLogin()
+    }
+  },
+  template: ` 
+  <div>
+    <site-header  v-if='isLogin()'></site-header>
+    <div class="container-fluid">
+      <div class="row">
+
+        <site-menu  v-if='isLogin()'></site-menu>
+
+        <main class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+          <div  v-if='isLogin()'
+            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2" id='page-header-id'>Dashboard</h1>
+          </div>
+
+          <router-view></router-view>
+        </main>
+      </div>
+    </div>
+  </div>`
+})
