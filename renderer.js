@@ -2,7 +2,7 @@ import './ui/app.js'
 
 (($) => {
   const { ipcRenderer } = require('electron');
-  // 動態載x-template資料
+  // 動態加入x-template資料
   ipcRenderer.send('template-send', '');
   ipcRenderer.on('template-reply', (event, arg) => {
     console.log(arg)
