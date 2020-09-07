@@ -1,6 +1,6 @@
 
 import   "./components/site.js";
-import { cardReaderComponent } from "./pages/card-reader.js";
+import { cardReaderComponent } from "./pages/CardReader/card-reader.js";
 ((document) => {
   const Foo = Vue.component('Foo', {
     created: function () {

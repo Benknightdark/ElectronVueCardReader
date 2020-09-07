@@ -6,7 +6,7 @@
   const isDev = require('electron-is-dev');
   const iconv = require('iconv-lite')
   const { app, BrowserWindow } = require('electron')
-  const { ipcMain } = require('electron')
+  const { ipcMain, ipcRenderer } = require('electron')
 
   var usb = require('usb')
   function createWindow() {
@@ -81,9 +81,9 @@
       card.on('command-issued', event => {
       });
 
-      card.on('response-received', event => {       
+      card.on('response-received', event => {
       });
-    
+
       const application = new Iso7816Application(card);
       application.issueCommand(new CommandApdu({ bytes: [0x00, 0xA4, 0x04, 0x00, 0x10, 0xD1, 0x58, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x11, 0x00] }))
         .then((response) => {
@@ -124,15 +124,14 @@
     device.on('card-removed', event => {
       console.log(`Card removed from '${event.name}' `);
     });
-
   });
-
   devices.on('device-deactivated', event => {
     console.log(`Device '${event.device}' deactivated, devices: [${event.devices}]`);
   });
-
-
-
-
+  const glob = require("glob-promise")
+  const templateFiles = await glob('./ui/**/*.html')
+  ipcMain.on('template-send', (event, arg) => {
+    event.reply('template-reply', JSON.stringify(templateFiles))
+  })
 })()
 

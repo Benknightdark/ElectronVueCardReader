@@ -12,25 +12,23 @@
   <link href="./styles/style.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
     integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
-
+  
 </head>
 
-<body >
+<body>
 
+  <div id="app">
+    <site-header></site-header>
+    <div class="container-fluid">
+      <div class="row">
 
-<div id="app">
+        <site-menu></site-menu>
 
-  <site-header></site-header>
-  <div class="container-fluid">
-    <div class="row" >
-
-     <site-menu></site-menu>
-
-      <main class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
-        <div
-          class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-          <h1 class="h2" id='page-header-id'>Dashboard</h1>       
-        </div>
+        <main class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+          <div
+            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2" id='page-header-id'>Dashboard</h1>
+          </div>
 
           <!-- <button-counter></button-counter>
           <button v-on:click="foo = 'baz'">Change it</button>
@@ -41,12 +39,13 @@
 
           </p> -->
           <router-view></router-view>
-      </main>
+        </main>
+      </div>
     </div>
   </div>
-</div>
+  <div id='templates'></div>
 
-<script src="https://unpkg.com/feather-icons@4.10.0/dist/feather.min.js"></script>
+  <script src="https://unpkg.com/feather-icons@4.10.0/dist/feather.min.js"></script>
 
   <script>window.$ = window.jQuery = require('jquery');</script>
 
@@ -63,9 +62,7 @@
   <!-- <script src='./ui/app.js' type='module'></script> -->
   <script src="./renderer.js" type='module'></script>
 
+
 </body>
 
 </html>
-<script>
-
-</script>
