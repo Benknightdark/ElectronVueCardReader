@@ -1,6 +1,6 @@
 const { ipcRenderer } = require('electron');
 
-export const cardReaderComponent = Vue.component('card-reader', {
+ const cardReaderComponent = Vue.component('card-reader', {
     created: function () {
         $('#page-header-id').text('讀卡機');
         ipcRenderer.removeAllListeners();
@@ -33,3 +33,4 @@ export const cardReaderComponent = Vue.component('card-reader', {
     },
     template: `#card-reader-template`
 })
+export default cardReaderComponent

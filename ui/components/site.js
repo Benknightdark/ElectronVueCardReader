@@ -1,7 +1,17 @@
-export const siteMenuComponent=Vue.component('site-menu', {
+export const siteMenuComponent = Vue.component('site-menu', {
+  created: function () {
+    this.$router.options.routes.forEach(route => {
+      console.log(route)
+      this.items.push({
+        name: route.name
+        , path: route.path
+      })
+    })
+    console.log(this.items)
+  },
   data: function () {
     return {
-
+      items: []
     }
   },
   methods: {},
@@ -9,10 +19,10 @@ export const siteMenuComponent=Vue.component('site-menu', {
   <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
     <div class="position-sticky pt-3">
       <ul class="nav flex-column">
-        <li class="nav-item">
-            <router-link to="/car-reader" class="nav-link">
+        <li class="nav-item"  v-for="item in items">
+            <router-link :to="item.path" class="nav-link">
             <span data-feather="home"></span>
-            健保卡資料
+            {{item.name}}
             </router-link>
         </li>    
       </ul>
@@ -20,7 +30,7 @@ export const siteMenuComponent=Vue.component('site-menu', {
   </nav>`
 })
 
-export const siteHeaderComponent=Vue.component('site-header', {
+export const siteHeaderComponent = Vue.component('site-header', {
   data: function () {
     return {
 
@@ -42,7 +52,7 @@ export const siteHeaderComponent=Vue.component('site-header', {
   </nav>`
 })
 
-export const siteFooterMenuComponent=Vue.component('site-footer', {
+export const siteFooterMenuComponent = Vue.component('site-footer', {
   data: function () {
     return {}
   },
