@@ -28,7 +28,6 @@ export const siteMenuComponent = Vue.component('site-menu', {
     </div>
   </nav>`
 })
-
 export const siteHeaderComponent = Vue.component('site-header', {
   data: function () {
     return {
@@ -56,7 +55,6 @@ export const siteHeaderComponent = Vue.component('site-header', {
     </ul>
   </nav>`
 })
-
 export const siteFooterMenuComponent = Vue.component('site-footer', {
   data: function () {
     return {}
