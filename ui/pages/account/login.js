@@ -8,6 +8,12 @@ export const loginPageComponent = Vue.component('login-page', {
        this.$router.push('/')
      }
     },
-    template: `#login-template`
+    template: `
+    <div> 
+        <h1>登入</h1>
+        <button @click='go'>fucking go</button>
+        </div> 
+
+`
   }) 
 export   default loginPageComponent  

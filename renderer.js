@@ -1,5 +1,5 @@
-
 import './ui/app.js'
+
 (($) => {
   const { ipcRenderer } = require('electron');
   // 動態載x-template資料
@@ -17,3 +17,4 @@ import './ui/app.js'
   });
 
 })($)
+
