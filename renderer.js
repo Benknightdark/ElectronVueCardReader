@@ -7,9 +7,13 @@ import './ui/app.js'
   ipcRenderer.on('template-reply', (event, arg) => {
     console.log(arg)
     const templates = JSON.parse(arg)
-    templates.map(m => {
-      $('#templates').load(m)
-    })
+    for (let index = 0; index < templates.length; index++) {
+      const element = templates[index];
+
+       $('#templates').append(`<div id='t-${index}'></div>`)
+       $(`#t-${index}`).load(element)
+    }
+   
   });
 
 })($)
