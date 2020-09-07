@@ -1,4 +1,4 @@
-import {isLogin} from '../helpers/ahtuHelper.js';
+import { isLogin, logout } from '../helpers/ahtuHelper.js';
 export const siteMenuComponent = Vue.component('site-menu', {
   created: function () {
     this.$router.options.routes.forEach(route => {
@@ -35,7 +35,13 @@ export const siteHeaderComponent = Vue.component('site-header', {
 
     }
   },
-  methods: {},
+  methods: {
+    logout: function () {
+      logout();
+      console.log(this)
+      this.$router.push('/login')
+    }
+  },
   template: `<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
     <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">Company name</a>
     <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse"
@@ -45,7 +51,7 @@ export const siteHeaderComponent = Vue.component('site-header', {
     <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
     <ul class="navbar-nav px-3">
       <li class="nav-item text-nowrap">
-        <a class="nav-link" href="#">Sign out</a>
+        <a class="nav-link" href="#" @click='logout'>Sign out</a>
       </li>
     </ul>
   </nav>`
@@ -57,8 +63,8 @@ export const siteFooterMenuComponent = Vue.component('site-footer', {
   },
   methods: {},
   template: ``
-}) 
-export const sitePageComponent=Vue.component('site-page',{
+})
+export const sitePageComponent = Vue.component('site-page', {
   data: function () {
     return {}
   },
@@ -72,15 +78,12 @@ export const sitePageComponent=Vue.component('site-page',{
     <site-header  v-if='isLogin()'></site-header>
     <div class="container-fluid">
       <div class="row">
-
         <site-menu  v-if='isLogin()'></site-menu>
-
         <main class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
           <div  v-if='isLogin()'
             class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
             <h1 class="h2" id='page-header-id'>Dashboard</h1>
           </div>
-
           <router-view></router-view>
         </main>
       </div>

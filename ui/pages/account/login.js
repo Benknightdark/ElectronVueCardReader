@@ -3,10 +3,14 @@ export const loginPageComponent = Vue.component('login-page', {
       return {}
     },
     methods: {
-     
+     go:function(){
+       localStorage.setItem('jwt','fuck');
+       this.$router.push('/')
+     }
     },
     template: ` <div> 
-    <h1>222222222222222</h1>
+    <h1>登入</h1>
+    <button @click='go'>fucking go</button>
     </div>       `
   }) 
 export   default loginPageComponent  
