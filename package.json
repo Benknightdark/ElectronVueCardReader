@@ -43,6 +43,7 @@
     }
   },
   "dependencies": {
+    "@types/vue-router": "^2.0.0",
     "amrhextotext": "^1.1.1",
     "electron-is-dev": "^1.2.0",
     "glob": "^7.1.6",

@@ -1,4 +1,3 @@
-// import { cardReaderComponent } from "./pages/CardReader/card-reader.js";
 const routes = [
     {
         name: 'CardReader',
@@ -11,7 +10,7 @@ const routes = [
 ];
 
 export const router = new VueRouter({
-    routes // short for `routes: routes`
+    routes:routes // short for `routes: routes`
 });
 
 router.beforeEach((to, from, next) => {

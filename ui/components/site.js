@@ -1,13 +1,11 @@
 export const siteMenuComponent = Vue.component('site-menu', {
   created: function () {
     this.$router.options.routes.forEach(route => {
-      console.log(route)
       this.items.push({
         name: route.name
         , path: route.path
       })
     })
-    console.log(this.items)
   },
   data: function () {
     return {
